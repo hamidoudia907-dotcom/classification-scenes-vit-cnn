@@ -1,0 +1,20 @@
+# Environnements
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Données (à télécharger depuis Kaggle)
+seg_train/
+seg_test/
+seg_pred/
+data/
+
+# Modèles et sorties
+*.pth
+*.csv
+resultats_projet/
+
+# Système
+.DS_Store
+Thumbs.db
