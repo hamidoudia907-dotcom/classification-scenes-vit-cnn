@@ -34,6 +34,18 @@ Le GPU est utilisé automatiquement s'il est disponible.
 
 Les deux scripts réservent 20 % des images d'entraînement à la validation, avec une graine fixée pour rendre la séparation reproductible. L'augmentation de données combine recadrage aléatoire, miroir horizontal, rotation et variation de couleur. La normalisation suit les statistiques ImageNet pour les modèles préentraînés.
 
+## Résultats
+
+Exactitude mesurée sur le jeu de test `seg_test` (3 000 images, jamais utilisées pendant l'entraînement ni pour choisir le meilleur modèle) :
+
+| Modèle | Exactitude (test) |
+|:---|---:|
+| ViT préentraîné (`vit_base_patch16_224`) | 100 % |
+| ResNet18 (apprentissage par transfert) | 98 % |
+| ViT entraîné de zéro | 92 % |
+
+Les deux modèles préentraînés font mieux que le ViT entraîné de zéro. Avec environ 14 000 images d'entraînement, un Transformer a peu de données pour apprendre seul ses représentations ; les poids appris sur ImageNet lui donnent un point de départ bien plus solide.
+
 ## Technologies
 
 Python, PyTorch, torchvision, timm, scikit-learn, pandas, Matplotlib, seaborn.
